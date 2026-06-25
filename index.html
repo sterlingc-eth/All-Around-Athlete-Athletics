@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Around Athlete Athletics — Train Every Dimension</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Archivo+Expanded:wght@600;700&display=swap" rel="stylesheet">
+<!-- Calendly -->
+<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<style>
+  :root{
+    --black:#0A0710;
+    --black-2:#120C1C;
+    --panel:#170F24;
+    --purple:#7B2FE0;
+    --purple-lt:#A86BFF;
+    --purple-deep:#3D1672;
+    --gold:#E8B23A;
+    --gold-lt:#F6D079;
+    --paper:#EDE7F5;
+    --paper-dim:#9C90B5;
+    --line:rgba(168,107,255,0.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--black);color:var(--paper);font-family:'Archivo',sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--gold);color:var(--black)}
+  a{color:inherit;text-decoration:none}
+  .display{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:0.005em;line-height:.92}
+  .ex{font-family:'Archivo Expanded',sans-serif;font-weight:700}
+  .eyebrow{font-size:11px;letter-spacing:0.36em;text-transform:uppercase;color:var(--gold-lt);font-weight:600}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 30px}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;
+    padding:18px 30px;backdrop-filter:blur(14px);background:rgba(10,7,16,0.55);border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{width:34px;height:34px;flex:none}
+  .brand .nm{font-family:'Archivo Expanded';font-weight:700;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;line-height:1.1}
+  .brand .nm b{color:var(--gold-lt)}
+  .navlinks{display:flex;gap:30px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;align-items:center}
+  .navlinks a{color:var(--paper-dim);transition:color .3s}
+  .navlinks a:hover{color:var(--paper)}
+  .navcta{padding:10px 18px;border:1px solid var(--gold);color:var(--gold-lt)!important;transition:all .3s}
+  .navcta:hover{background:var(--gold);color:var(--black)!important}
+  @media(max-width:820px){.navlinks a:not(.navcta){display:none}}
+
+  /* HERO */
+  .hero{min-height:100vh;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:30px;
+    position:relative;padding-top:90px;
+    background:radial-gradient(90% 70% at 80% 30%,rgba(123,47,224,0.30),transparent 60%),
+               radial-gradient(60% 60% at 10% 90%,rgba(232,178,58,0.10),transparent 60%);}
+  .hero::before{content:"";position:absolute;inset:0;z-index:-1;
+    background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:34px 34px;opacity:.5}
+  .hero-l h1{font-size:clamp(54px,9vw,128px)}
+  .hero-l h1 .o{-webkit-text-stroke:2px var(--gold);color:transparent}
+  .hero-l h1 .p{color:var(--purple-lt)}
+  .hero-tag{max-width:440px;color:var(--paper-dim);font-size:17px;margin:26px 0 32px}
+  .hero-tag b{color:var(--paper);font-weight:600}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;font-size:12px;letter-spacing:0.16em;
+    text-transform:uppercase;font-weight:600;transition:all .3s;cursor:pointer;border:1px solid transparent}
+  .btn-gold{background:var(--gold);color:var(--black)}
+  .btn-gold:hover{background:var(--gold-lt);transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--line);color:var(--paper)}
+  .btn-ghost:hover{border-color:var(--purple-lt);background:rgba(123,47,224,0.12)}
+  .hero-stats{display:flex;gap:34px;margin-top:46px;border-top:1px solid var(--line);padding-top:24px;flex-wrap:wrap}
+  .hero-stats .s .n{font-family:'Anton';font-size:34px;color:var(--gold-lt)}
+  .hero-stats .s .l{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--paper-dim)}
+  /* radar signature */
+  .radar-wrap{position:relative;display:flex;justify-content:center;align-items:center}
+  .radar{width:min(440px,86vw);height:auto;filter:drop-shadow(0 0 40px rgba(123,47,224,0.35))}
+  .radar .ring{fill:none;stroke:var(--line);stroke-width:1}
+  .radar .axis{stroke:rgba(168,107,255,0.25);stroke-width:1}
+  .radar .shape{fill:rgba(123,47,224,0.28);stroke:var(--gold);stroke-width:2;
+    stroke-linejoin:round;filter:drop-shadow(0 0 8px rgba(232,178,58,0.5))}
+  .radar .dot{fill:var(--gold-lt)}
+  .radar .lbl{fill:var(--paper);font-family:'Archivo';font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase}
+  .radar .val{fill:var(--gold-lt);font-family:'Anton';font-size:15px}
+  @media(max-width:820px){.hero{grid-template-columns:1fr;min-height:auto;padding-top:120px;padding-bottom:40px}
+    .radar-wrap{margin-top:30px}}
+
+  /* MARQUEE */
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;overflow:hidden;background:var(--black-2)}
+  .track{display:flex;gap:50px;white-space:nowrap;animation:scroll 26s linear infinite;width:max-content}
+  .track span{font-family:'Archivo Expanded';font-weight:700;font-size:18px;letter-spacing:0.05em;text-transform:uppercase;color:var(--paper-dim)}
+  .track span b{color:var(--gold-lt)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.track{animation:none}}
+
+  section{padding:120px 0;position:relative}
+  .sec-head{margin-bottom:56px}
+  .sec-head h2{font-size:clamp(34px,5.5vw,72px);margin-top:14px}
+  .sec-head h2 .g{color:var(--gold-lt)}
+  .sec-head p{color:var(--paper-dim);max-width:52ch;margin-top:16px;font-size:16px}
+
+  /* PILLARS / SERVICES */
+  .pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .pillar{background:var(--panel);border:1px solid var(--line);padding:34px 30px;position:relative;overflow:hidden;transition:transform .4s,border-color .4s}
+  .pillar::after{content:attr(data-n);position:absolute;top:-22px;right:8px;font-family:'Anton';font-size:120px;color:rgba(168,107,255,0.07)}
+  .pillar:hover{transform:translateY(-5px);border-color:var(--purple-lt)}
+  .pillar h3{font-family:'Archivo Expanded';font-weight:700;font-size:22px;margin:18px 0 12px;text-transform:uppercase;letter-spacing:0.02em}
+  .pillar p{color:var(--paper-dim);font-size:15px;position:relative;z-index:2}
+  .pillar .ic{width:42px;height:42px;color:var(--gold)}
+  @media(max-width:760px){.pillars{grid-template-columns:1fr}}
+
+  /* RESULTS */
+  .results{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .rcard{background:var(--black-2);padding:32px 26px;transition:background .4s}
+  .rcard:hover{background:var(--panel)}
+  .rcard .big{font-family:'Anton';font-size:52px;color:var(--gold-lt);line-height:1}
+  .rcard .lbl{font-size:13px;color:var(--paper-dim);margin-top:8px}
+  .rcard .nm{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple-lt);margin-top:20px;font-weight:600}
+  @media(max-width:760px){.results{grid-template-columns:1fr 1fr}}
+
+  /* PROGRAMS */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+  .plan{background:var(--panel);border:1px solid var(--line);padding:34px 30px;display:flex;flex-direction:column;transition:transform .4s,border-color .4s}
+  .plan:hover{transform:translateY(-5px);border-color:var(--purple-lt)}
+  .plan.feat{border-color:var(--gold);background:linear-gradient(180deg,rgba(232,178,58,0.10),var(--panel))}
+  .plan .badge{align-self:flex-start;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:5px 11px;font-weight:700;margin-bottom:18px}
+  .plan .pn{font-family:'Archivo Expanded';font-weight:700;font-size:20px;text-transform:uppercase}
+  .plan .pr{font-family:'Anton';font-size:54px;color:var(--paper);margin:14px 0 2px}
+  .plan .pr small{font-family:'Archivo';font-size:14px;color:var(--paper-dim);font-weight:400}
+  .plan ul{list-style:none;margin:24px 0 30px;flex:1}
+  .plan li{font-size:14px;color:var(--paper-dim);padding:11px 0;border-bottom:1px solid var(--line);display:flex;gap:10px}
+  .plan li svg{flex:none;color:var(--gold);width:16px;margin-top:3px}
+  @media(max-width:760px){.plans{grid-template-columns:1fr}}
+
+  /* BOOKING */
+  .book{background:var(--panel);border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;
+    background-image:radial-gradient(80% 120% at 100% 0,rgba(123,47,224,0.20),transparent 60%)}
+  .book-l{padding:56px 48px;border-right:1px solid var(--line)}
+  .book-l h2{font-size:clamp(30px,4vw,52px);margin:14px 0 18px}
+  .book-l p{color:var(--paper-dim);max-width:42ch;margin-bottom:30px}
+  .book-r{padding:40px 38px}
+  .slot{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border:1px solid var(--line);margin-bottom:12px;cursor:pointer;transition:all .3s}
+  .slot:hover{border-color:var(--gold);background:rgba(232,178,58,0.07)}
+  .slot .d{font-family:'Archivo Expanded';font-weight:700;font-size:16px;text-transform:uppercase}
+  .slot .t{font-size:12px;color:var(--paper-dim)}
+  .slot .arr{color:var(--gold-lt);font-size:18px}
+  @media(max-width:760px){.book{grid-template-columns:1fr}.book-l{border-right:none;border-bottom:1px solid var(--line);padding:38px 26px}.book-r{padding:30px 26px}}
+
+  /* QUOTE */
+  .quote{text-align:center;max-width:920px;margin:0 auto}
+  .quote q{font-family:'Anton';font-size:clamp(26px,4.4vw,52px);text-transform:uppercase;line-height:1.05;quotes:none}
+  .quote q .g{color:var(--gold-lt)}
+  .quote .by{margin-top:28px;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--paper-dim)}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:80px 0 40px}
+  .foot-cta{font-family:'Anton';font-size:clamp(48px,11vw,150px);text-transform:uppercase;line-height:.88}
+  .foot-cta .o{-webkit-text-stroke:2px var(--purple-lt);color:transparent}
+  .foot-grid{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-top:46px;padding-top:30px;border-top:1px solid var(--line)}
+  .foot-meta{font-size:13px;color:var(--paper-dim);letter-spacing:0.08em}
+  .foot-meta a{display:block;margin-top:6px;color:var(--paper-dim)}
+  .foot-meta a:hover{color:var(--gold-lt)}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <svg class="mark" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="18" stroke="var(--gold)" stroke-width="1.5"/>
+      <path d="M20 4 L33 27 L7 27 Z" fill="var(--purple)" opacity="0.5"/>
+      <path d="M20 9 L29 25 L11 25 Z" stroke="var(--gold-lt)" stroke-width="1.5" fill="none"/>
+      <circle cx="20" cy="20" r="3" fill="var(--gold-lt)"/>
+    </svg>
+    <div class="nm">All Around Athlete<br><b>Athletics</b></div>
+  </div>
+  <div class="navlinks">
+    <a href="#pillars">Method</a>
+    <a href="#results">Results</a>
+    <a href="#programs">Programs</a>
+    <a href="#book" class="navcta">Apply to train</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap" style="display:contents">
+  <div class="hero-l">
+    <p class="eyebrow reveal in">Strength · Speed · Conditioning · Mobility</p>
+    <h1 class="display reveal in">Train <span class="p">every</span><br><span class="o">dimension.</span></h1>
+    <p class="hero-tag reveal in">Most coaching builds one trait and breaks the rest. <b>All Around Athlete Athletics</b> develops the complete athlete — power, capacity, movement, and resilience, programmed to advance together.</p>
+    <div class="hero-cta reveal in">
+      <a href="#book" class="btn btn-gold">Apply to train →</a>
+      <a href="#pillars" class="btn btn-ghost">See the method</a>
+    </div>
+    <div class="hero-stats reveal in">
+      <div class="s"><div class="n">11</div><div class="l">Years coaching</div></div>
+      <div class="s"><div class="n">200+</div><div class="l">Athletes built</div></div>
+      <div class="s"><div class="n">4</div><div class="l">Trained dimensions</div></div>
+    </div>
+  </div>
+  <div class="radar-wrap reveal in">
+    <svg class="radar" viewBox="0 0 360 360">
+      <!-- rings -->
+      <circle class="ring" cx="180" cy="180" r="135"/>
+      <circle class="ring" cx="180" cy="180" r="101"/>
+      <circle class="ring" cx="180" cy="180" r="67"/>
+      <circle class="ring" cx="180" cy="180" r="33"/>
+      <!-- 5 axes: Strength(top), Speed(upper-right), Power(lower-right), Mobility(lower-left), Endurance(upper-left) -->
+      <line class="axis" x1="180" y1="180" x2="180" y2="45"/>
+      <line class="axis" x1="180" y1="180" x2="308" y2="138"/>
+      <line class="axis" x1="180" y1="180" x2="259" y2="289"/>
+      <line class="axis" x1="180" y1="180" x2="101" y2="289"/>
+      <line class="axis" x1="180" y1="180" x2="52" y2="138"/>
+      <!-- athlete shape (well-rounded, high) -->
+      <polygon class="shape" points="180,57 295,143 245,279 115,279 65,143"/>
+      <!-- vertex dots -->
+      <circle class="dot" cx="180" cy="57" r="4"/>
+      <circle class="dot" cx="295" cy="143" r="4"/>
+      <circle class="dot" cx="245" cy="279" r="4"/>
+      <circle class="dot" cx="115" cy="279" r="4"/>
+      <circle class="dot" cx="65" cy="143" r="4"/>
+      <!-- labels -->
+      <text class="lbl" x="180" y="32" text-anchor="middle">Strength</text>
+      <text class="lbl" x="330" y="135" text-anchor="middle">Speed</text>
+      <text class="lbl" x="278" y="312" text-anchor="middle">Power</text>
+      <text class="lbl" x="86" y="312" text-anchor="middle">Mobility</text>
+      <text class="lbl" x="30" y="135" text-anchor="middle">Capacity</text>
+    </svg>
+  </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="track">
+    <span>Build the <b>complete</b> athlete</span><span>·</span>
+    <span>No weak links</span><span>·</span>
+    <span>Programmed, not guessed</span><span>·</span>
+    <span>By application only</span><span>·</span>
+    <span>Build the <b>complete</b> athlete</span><span>·</span>
+    <span>No weak links</span><span>·</span>
+    <span>Programmed, not guessed</span><span>·</span>
+    <span>By application only</span><span>·</span>
+  </div>
+</div>
+
+<!-- PILLARS -->
+<section id="pillars">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">The method</p>
+      <h2 class="display">Four dimensions.<br><span class="g">One athlete.</span></h2>
+      <p>Every program is built across all four. Your weakest dimension sets your ceiling — so we raise the floor before we chase the peak.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal" data-n="01">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6h2v12H6zM16 6h2v12h-2zM4 9h2v6H4zM18 9h2v6h-2zM8 11h8v2H8z"/></svg>
+        <h3>Strength &amp; Power</h3>
+        <p>Periodized barbell work that adds real load to the bar. Force you can apply — not numbers that only exist on a good day.</p>
+      </div>
+      <div class="pillar reveal" data-n="02">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>
+        <h3>Speed &amp; Explosiveness</h3>
+        <p>Sprint mechanics, plyometrics, and rate-of-force work. Move faster, change direction sharper, hit harder when it counts.</p>
+      </div>
+      <div class="pillar reveal" data-n="03">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zM12 7v5l3 3"/></svg>
+        <h3>Conditioning &amp; Capacity</h3>
+        <p>An engine that doesn't quit in round three. Energy-system training matched to your sport, your goal, and your real life.</p>
+      </div>
+      <div class="pillar reveal" data-n="04">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="5" r="2"/><path d="M12 7v6M9 20l3-7 3 7M7 11l5-2 5 2"/></svg>
+        <h3>Mobility &amp; Resilience</h3>
+        <p>The dimension everyone skips. Joint control and tissue prep so you keep training — and stay built — for decades, not seasons.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results" style="background:var(--black-2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">A record of results</p>
+      <h2 class="display">Proof, <span class="g">not promises.</span></h2>
+      <p>Real numbers from real athletes. Specifics, because specifics are the only honest kind of social proof.</p>
+    </div>
+    <div class="results">
+      <div class="rcard reveal"><div class="big">+85<small style="font-size:22px">kg</small></div><div class="lbl">Total added across the big three in 16 weeks</div><div class="nm">M.T · Strength</div></div>
+      <div class="rcard reveal"><div class="big">−11<small style="font-size:22px">%</small></div><div class="lbl">Body fat dropped while holding strength</div><div class="nm">P.N · Recomp</div></div>
+      <div class="rcard reveal"><div class="big">0.31<small style="font-size:20px">s</small></div><div class="lbl">Faster 20m sprint after a power block</div><div class="nm">D.K · Speed</div></div>
+      <div class="rcard reveal"><div class="big">100<small style="font-size:22px">%</small></div><div class="lbl">Return-to-sport rate post-injury</div><div class="nm">Across 19 athletes</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section>
+  <div class="wrap quote reveal">
+    <p class="eyebrow" style="margin-bottom:28px">From an athlete</p>
+    <q>Every coach built one thing and let the rest <span class="g">fall apart.</span> Here, nothing gets left behind.</q>
+    <div class="by">Marcus T. · Trained since 2022</div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs" style="background:var(--black-2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Ways to train</p>
+      <h2 class="display">Pick your <span class="g">entry point.</span></h2>
+      <p>Three ways in. Every one of them trains all four dimensions — the difference is how much access you want.</p>
+    </div>
+    <div class="plans">
+      <div class="plan reveal">
+        <span class="pn">The Blueprint</span>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>12-week all-dimension plan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Full video movement library</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Progress &amp; benchmark tracker</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>One revision included</li>
+        </ul>
+        <a href="#book" class="btn btn-ghost">Get the blueprint</a>
+      </div>
+      <div class="plan feat reveal">
+        <span class="badge">Most chosen</span>
+        <span class="pn">Remote Coaching</span>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Fully personalized programming</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Weekly check-ins &amp; video review</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Nutrition &amp; recovery strategy</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Direct messaging access</li>
+        </ul>
+        <a href="#book" class="btn btn-gold">Apply now →</a>
+      </div>
+      <div class="plan reveal">
+        <span class="pn">Private 1-on-1</span>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>In-person, fully coached</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Built around your sport &amp; goal</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Block discounts available</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>By application only</li>
+        </ul>
+        <a href="#book" class="btn btn-ghost">Enquire</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="book">
+  <div class="wrap">
+    <div class="book reveal">
+      <div class="book-l">
+        <p class="eyebrow">Start here</p>
+        <h2 class="display">Book your<br><span class="g">assessment.</span></h2>
+        <p>Every athlete starts with a four-dimension assessment. We measure where you stand on each axis, find your weak link, and map the plan to fix it. Pick a slot to begin.</p>
+        <a href="#" class="btn btn-gold" data-calendly>See full calendar →</a>
+      </div>
+      <div class="book-r">
+        <!-- Calendly inline widget. Replace the data-url with the real scheduling link. -->
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/YOUR-CALENDLY-USERNAME/assessment?hide_gdpr_banner=1&background_color=170f24&text_color=ede7f5&primary_color=e8b23a"
+             style="min-width:280px;height:560px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-cta display">No weak<br><span class="o">links.</span></div>
+    <div class="foot-grid">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="18" stroke="var(--gold)" stroke-width="1.5"/>
+          <path d="M20 4 L33 27 L7 27 Z" fill="var(--purple)" opacity="0.5"/>
+          <path d="M20 9 L29 25 L11 25 Z" stroke="var(--gold-lt)" stroke-width="1.5" fill="none"/>
+          <circle cx="20" cy="20" r="3" fill="var(--gold-lt)"/>
+        </svg>
+        <div class="nm">All Around Athlete<br><b>Athletics</b></div>
+      </div>
+      <div class="foot-meta" style="text-align:right">
+        Strength · Speed · Conditioning · Mobility
+        <a href="mailto:train@aaathletics.com">train@aaathletics.com</a>
+        <a href="#">@allaroundathlete</a>
+        <a href="#book">Apply to train</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Calendly ──────────────────────────────────────────────
+  // Set this once to the real scheduling link (same as the inline embed above).
+  const CALENDLY_URL = "https://calendly.com/YOUR-CALENDLY-USERNAME/assessment";
+  document.querySelectorAll('[data-calendly]').forEach(el=>{
+    el.addEventListener('click', e=>{
+      e.preventDefault();
+      if(window.Calendly){ Calendly.initPopupWidget({url: CALENDLY_URL}); }
+      else { document.getElementById('book').scrollIntoView({behavior:'smooth'}); }
+    });
+  });
+
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
