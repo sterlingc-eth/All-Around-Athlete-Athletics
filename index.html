@@ -78,11 +78,11 @@
   /* Hero athlete backdrop — darkened, right-anchored behind the radar */
   .hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
   .hero-bg img{position:absolute;top:0;right:0;height:100%;width:64%;object-fit:cover;object-position:50% 26%;
-    opacity:.5;filter:grayscale(.12) contrast(1.06) brightness(.96);animation:heroFade 1.6s ease both}
+    opacity:.72;filter:contrast(1.08) saturate(1.05);animation:heroFade 1.6s ease both}
   .hero-bg::after{content:"";position:absolute;inset:0;background:
-    linear-gradient(90deg,var(--black) 6%,rgba(10,8,14,0.74) 32%,rgba(10,8,14,0.12) 60%,rgba(10,8,14,0.5) 100%),
-    linear-gradient(0deg,var(--black) 2%,transparent 24%,transparent 70%,rgba(10,8,14,0.72) 100%)}
-  @keyframes heroFade{from{opacity:0;transform:scale(1.06)}to{opacity:.5}}
+    linear-gradient(90deg,var(--black) 4%,rgba(10,8,14,0.66) 28%,rgba(10,8,14,0.04) 58%,rgba(10,8,14,0.32) 100%),
+    linear-gradient(0deg,var(--black) 1%,transparent 22%,transparent 74%,rgba(10,8,14,0.55) 100%)}
+  @keyframes heroFade{from{opacity:0;transform:scale(1.06)}to{opacity:.72}}
   .hero-l{position:relative;z-index:3}
   .hero-l h1{font-size:clamp(58px,9.5vw,150px);letter-spacing:-0.01em}
   .hero-l h1 .o{-webkit-text-stroke:2px var(--gold);color:transparent;
@@ -257,10 +257,10 @@
   /* Cinematic image band behind the testimonial quote */
   .quote-band{position:relative;overflow:hidden}
   .quote-band .qb-img{position:absolute;inset:0;z-index:0}
-  .quote-band .qb-img img{width:100%;height:100%;object-fit:cover;object-position:50% 26%;opacity:.42}
+  .quote-band .qb-img img{width:100%;height:100%;object-fit:cover;object-position:50% 26%;opacity:.66;filter:contrast(1.06) saturate(1.05)}
   .quote-band .qb-img::after{content:"";position:absolute;inset:0;background:
-    linear-gradient(0deg,var(--black),rgba(10,8,14,0.42) 26%,rgba(10,8,14,0.42) 74%,var(--black)),
-    radial-gradient(130% 82% at 50% 42%,transparent 34%,rgba(10,8,14,0.62))}
+    linear-gradient(0deg,var(--black),rgba(10,8,14,0.28) 22%,rgba(10,8,14,0.24) 78%,var(--black)),
+    radial-gradient(140% 88% at 50% 42%,transparent 42%,rgba(10,8,14,0.5))}
   .quote-band .wrap{position:relative;z-index:2}
   .quote{text-align:center;max-width:920px;margin:0 auto;position:relative}
   .quote q{font-family:'Anton';font-size:clamp(26px,4.4vw,52px);text-transform:uppercase;line-height:1.05;quotes:none}
