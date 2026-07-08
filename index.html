@@ -267,6 +267,27 @@
   .quote q .g{color:var(--gold-lt)}
   .quote .by{margin-top:28px;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--paper-dim)}
 
+  /* MEET YOUR COACH */
+  .coach .wrap{display:grid;grid-template-columns:1.02fr 1fr;gap:64px;align-items:center}
+  .coach-l h2{margin-top:12px}
+  .coach-l p{color:var(--paper-dim);font-size:17px;line-height:1.6;margin:22px 0 0;max-width:46ch}
+  .coach-l p + p{margin-top:16px}
+  .coach-l .btn{margin-top:32px}
+  .coach-media{position:relative;width:100%;max-width:440px;margin-left:auto}
+  .coach-media::before{content:"";position:absolute;left:-18px;top:-18px;width:58%;height:58%;
+    border:1px solid rgba(232,178,58,0.45);border-radius:12px;z-index:0}
+  .cm-main{position:relative;z-index:1;display:block;width:100%;height:auto;border-radius:12px;
+    box-shadow:0 34px 70px -24px rgba(0,0,0,0.78)}
+  .cm-inset{position:absolute;z-index:2;right:-7%;bottom:-9%;width:47%;border-radius:9px;overflow:hidden;
+    border:3px solid var(--black);box-shadow:0 22px 46px -14px rgba(0,0,0,0.85),0 0 0 1px rgba(232,178,58,0.55)}
+  .cm-inset img{display:block;width:100%;height:auto}
+  @media(max-width:900px){
+    .coach .wrap{grid-template-columns:1fr;gap:20px}
+    .coach-media{margin:10px auto 24px;max-width:340px}
+    .cm-inset{right:-4%;bottom:-6%;width:44%}
+    .coach-media::before{left:-12px;top:-12px}
+  }
+
   /* FOOTER */
   footer{border-top:1px solid var(--line);padding:80px 0 40px;position:relative}
   .foot-cta{font-family:'Anton';font-size:clamp(48px,11vw,150px);text-transform:uppercase;line-height:.88}
@@ -675,6 +696,23 @@
         </ul>
         <a href="#book" class="btn btn-ghost" data-calendly>Enquire</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEET YOUR COACH -->
+<section class="coach" id="coach">
+  <div class="wrap">
+    <div class="coach-l reveal">
+      <p class="eyebrow">The coach</p>
+      <h2 class="display">Meet <span class="g">John.</span></h2>
+      <p>The coach behind All Around Athlete Athletics. Eleven years spent building complete athletes — training strength, speed, conditioning, and mobility as one system, not four separate goals.</p>
+      <p>In the gym or coached remotely, the standard is the same: a plan built around where you actually stand, with every dimension moving forward together.</p>
+      <a href="#book" class="btn btn-gold" data-calendly>Train with John →</a>
+    </div>
+    <div class="coach-media reveal">
+      <img class="cm-main" src="assets/coach-john.jpg" alt="John, coach and founder of All Around Athlete Athletics">
+      <div class="cm-inset"><img src="assets/john-squat.jpg" alt="John training in the gym"></div>
     </div>
   </div>
 </section>
