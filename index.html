@@ -75,6 +75,14 @@
   .hero::before{content:"";position:absolute;inset:0;z-index:-1;
     background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:34px 34px;opacity:.4;
     mask-image:radial-gradient(80% 80% at 50% 50%,#000,transparent)}
+  /* Hero athlete backdrop — darkened, right-anchored behind the radar */
+  .hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .hero-bg img{position:absolute;top:0;right:0;height:100%;width:64%;object-fit:cover;object-position:50% 26%;
+    opacity:.5;filter:grayscale(.12) contrast(1.06) brightness(.96);animation:heroFade 1.6s ease both}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:
+    linear-gradient(90deg,var(--black) 6%,rgba(10,8,14,0.74) 32%,rgba(10,8,14,0.12) 60%,rgba(10,8,14,0.5) 100%),
+    linear-gradient(0deg,var(--black) 2%,transparent 24%,transparent 70%,rgba(10,8,14,0.72) 100%)}
+  @keyframes heroFade{from{opacity:0;transform:scale(1.06)}to{opacity:.5}}
   .hero-l{position:relative;z-index:3}
   .hero-l h1{font-size:clamp(58px,9.5vw,150px);letter-spacing:-0.01em}
   .hero-l h1 .o{-webkit-text-stroke:2px var(--gold);color:transparent;
@@ -142,6 +150,9 @@
 
   @media(max-width:900px){
     .hero{grid-template-columns:1fr;min-height:auto;padding-top:116px;padding-bottom:30px;text-align:left}
+    .hero-bg img{width:100%;object-position:50% 20%;opacity:.24}
+    .hero-bg::after{background:
+      linear-gradient(180deg,rgba(10,8,14,0.6) 0%,rgba(10,8,14,0.35) 30%,var(--black) 86%)}
     .radar-stage{position:relative;width:100%;height:auto;margin-top:20px;
       flex-direction:column;align-items:center;justify-content:flex-start}
     .radar{width:min(300px,66vw);margin:0 auto}
@@ -424,6 +435,7 @@
 
 <!-- HERO -->
 <header class="hero">
+  <div class="hero-bg"><img src="assets/john-boxing-guard.jpg" alt="Coach training on the heavy bag" loading="eager"></div>
   <div class="wrap" style="display:contents">
   <div class="hero-l">
     <p class="eyebrow reveal in">Strength · Speed · Conditioning · Mobility</p>
